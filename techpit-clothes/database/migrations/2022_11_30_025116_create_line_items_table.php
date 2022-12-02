@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateLineItemsTable extends Migration
 {
-    /**
+    /
      * Run the migrations.
      *
      * @return void
@@ -23,17 +23,23 @@ class CreateLineItemsTable extends Migration
             $table->foreign('cart_id')
                 ->references('id')
                 ->on('carts');
+            //cartテーブルから情報を紐付け
             $table->foreign('product_id')
                 ->references('id')
                 ->on('products');
         });
+        //productテーブルから情報を紐付け
     }
+    //このline_items_tableの目的はproductとcartの関係は多対多であるが、直接関係は結べないので中間テーブルを作成している
+    //$table->foreign('外部キー')
+    //->references('外部キーに対応する親テーブルの主キー')
+    //->on('親テーブル名');
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    // 
+    //  * Reverse the migrations.
+    //  *
+    //  * @return void
+    //  */
     public function down()
     {
         Schema::dropIfExists('line_items');

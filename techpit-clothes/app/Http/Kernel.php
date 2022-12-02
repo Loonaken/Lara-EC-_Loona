@@ -36,6 +36,8 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\CartSession::class,
+            //**商品を購入して確認画面へ遷移する際にセッションを持っているかどうかをルートのコントローラ指示をするときにmiddlewareを発動する
+
 
         ],
 
